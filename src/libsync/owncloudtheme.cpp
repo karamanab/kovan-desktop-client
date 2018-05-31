@@ -89,7 +89,7 @@ QVariant ownCloudTheme::customMedia(Theme::CustomMediaType type)
 
 QString ownCloudTheme::helpUrl() const
 {
-    return QString::fromLatin1("https://doc.owncloud.org/desktop/%1.%2/").arg(MIRALL_VERSION_MAJOR).arg(MIRALL_VERSION_MINOR);
+    return QString::fromLatin1("http://yardim.itu.edu.tr");
 }
 
 #ifndef TOKEN_AUTH_ONLY

@@ -209,7 +209,7 @@ bool Theme::singleSyncFolder() const
 
 bool Theme::multiAccount() const
 {
-    return true;
+    return false;
 }
 
 QString Theme::defaultServerFolder() const
@@ -219,7 +219,7 @@ QString Theme::defaultServerFolder() const
 
 QString Theme::overrideServerUrl() const
 {
-    return QString::null;
+    return QString("https://kovan.itu.edu.tr");
 }
 
 QString Theme::forceConfigAuthType() const
@@ -495,7 +495,7 @@ QString Theme::wizardUrlPostfix() const
 
 QString Theme::wizardUrlHint() const
 {
-    return QString();
+    return QString("https://kovan.itu.edu.tr");
 }
 
 QString Theme::quotaBaseFolder() const

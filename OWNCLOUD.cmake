@@ -4,7 +4,7 @@ set( APPLICATION_EXECUTABLE "Kovan" )
 set( APPLICATION_DOMAIN     "kovan.itu.edu.tr" )
 set( APPLICATION_VENDOR     "ITU BIDB" )
 set( APPLICATION_UPDATE_URL "https://kovan.itu.edu.tr/kovan-clients/update.php" CACHE string "URL for updater" )
-set( APPLICATION_ICON_NAME  "Kovan" )
+set( APPLICATION_ICON_NAME  "owncloud" )
 
 set( LINUX_PACKAGE_SHORTNAME "kovan" )
 
