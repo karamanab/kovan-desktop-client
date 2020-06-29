@@ -20,9 +20,21 @@ https://github.com/ITUBIDB/kovan-desktop-client.
 
 ## MacOS Building steps
 
-### Steps for MacOS build will be added
+* Clone repo `git clone https://github.com/ITUBIDB/kovan-desktop-client/`
+* To build up-to-date version of XCode app, brew and packages tools are needed.
+* Add ownCloud repo `brew tap owncloud/owncloud`
+* Install qt5 using `brew install qt5`
+* Install ownCloud dependencies using `brew install $(brew deps owncloud-client)`
+* Install qtkeychain `brew install qtkeychain`
 
-## MacOS Building steps
+* Init submodules using `cd kovan-desktop-client && sudo git submodule init && sudo git submodule update`
+* Create build folder `mkdir client-build && cd client-build`
+* Configure cmake options `cmake -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.15.0 -DCMAKE_INSTALL_PREFIX=~/kovan-desktop-client/build ../`
+* `make`
+* Kovan.app will be under the folder ./client-build/bin or could be executed using `./Kovan` under ./Kovan.app/Contents/MacOS
+* Run `./admin/osx/create_mac.sh ./bin/ .` to generate pkg, it will be under build folder that's created on cmake configuration step
+
+## Windows Building steps
 
 ### Steps for Windows build will be added
 
