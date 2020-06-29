@@ -20,11 +20,42 @@ https://github.com/ITUBIDB/kovan-desktop-client.
 
 ## MacOS Building steps
 
-### Steps for MacOS build will be added
+* Clone repo `git clone https://github.com/ITUBIDB/kovan-desktop-client/`
+* To build up-to-date version of XCode app, brew and packages tools are needed.
+* Add ownCloud repo `brew tap owncloud/owncloud`
+* Install qt5 using `brew install qt5`
+* Install ownCloud dependencies using `brew install $(brew deps owncloud-client)`
+* Install qtkeychain `brew install qtkeychain`
 
-## MacOS Building steps
+* Init submodules using `cd kovan-desktop-client && sudo git submodule init && sudo git submodule update`
+* Create build folder `mkdir client-build && cd client-build`
+* Configure cmake options `cmake -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.15.0 -DCMAKE_INSTALL_PREFIX=~/kovan-desktop-client/build ../`
+* `make`
+* Kovan.app will be under the folder ./client-build/bin or could be executed using `./Kovan` under ./Kovan.app/Contents/MacOS
+* Run `./admin/osx/create_mac.sh ./bin/ .` to generate pkg, it will be under build folder that's created on cmake configuration step
 
-### Steps for Windows build will be added
+## Windows Building steps
+
+### Building the client
+* To install KDE Craft, Python 2.7 or Python 3.6+, and PowerShell 5.0+ must be installed. You can find the full installation guide in the KDE Community Wiki.
+* Install Visual Studio 2019 and msvc_2019 c++ compiler
+* When the dependencies are installed, install KDE Craft using the following lines in PowerShell:
+
+`Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
+
+`iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/KDE/craft/master/setup/install_craft.ps1'))`
+
+* Launch the KDE Craft Environment: `C:\CraftRoot\craft\craftenv.ps1`
+* Add kovan craft blueprint repository: `craft --add-blueprint-repository https://github.com/ITUBIDB/craft-blueprints-owncloud.git`
+* Build the client: `craft --buildtype Release owncloud-client`
+
+### Packaging to client
+* Install nsis: `craft --buildtype Release nsis`
+* Create package for kovan: `craft --buildtype Release --package owncloud-client`
+
+### Signing the package
+* Install signtool.exe to sign package
+* Sign the package with this command: `"C:\PathTo\signtool.exe" sign /a /tr http://rfc3161timestamp.globalsign.com/advanced /td SHA256 "C:\CraftRoot\tmp\kovanV2.6.3.exe"`
 
 ## Reporting issues and contributing
 
