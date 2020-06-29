@@ -36,7 +36,26 @@ https://github.com/ITUBIDB/kovan-desktop-client.
 
 ## Windows Building steps
 
-### Steps for Windows build will be added
+### Building the client
+* To install KDE Craft, Python 2.7 or Python 3.6+, and PowerShell 5.0+ must be installed. You can find the full installation guide in the KDE Community Wiki.
+* Install Visual Studio 2019 and msvc_2019 c++ compiler
+* When the dependencies are installed, install KDE Craft using the following lines in PowerShell:
+
+`Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
+
+`iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/KDE/craft/master/setup/install_craft.ps1'))`
+
+* Launch the KDE Craft Environment: `C:\CraftRoot\craft\craftenv.ps1`
+* Add kovan craft blueprint repository: `craft --add-blueprint-repository https://github.com/ITUBIDB/craft-blueprints-owncloud.git`
+* Build the client: `craft --buildtype Release owncloud-client`
+
+### Packaging to client
+* Install nsis: `craft --buildtype Release nsis`
+* Create package for kovan: `craft --buildtype Release --package owncloud-client`
+
+### Signing the package
+* Install signtool.exe to sign package
+* Sign the package with this command: `"C:\PathTo\signtool.exe" sign /a /tr http://rfc3161timestamp.globalsign.com/advanced /td SHA256 "C:\CraftRoot\tmp\kovanV2.6.3.exe"`
 
 ## Reporting issues and contributing
 
