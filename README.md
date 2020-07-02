@@ -45,10 +45,8 @@ https://github.com/ITUBIDB/kovan-desktop-client.
 ### Building the client (After fresh OS install)
 * Install both Python 2 and Python 3 latest from python.org
 * Install Visual Studio 2019 with "Desktop Development with C++"
-* After the dependencies are installed, install KDE Craft using the following lines in PowerShell with admin privileges. Use default settings.
-  `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
-  `iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/KDE/craft/master/setup/install_craft.ps1'))`
-
+* Open Powershell as Admin and change execution policy `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
+* Install KDE Craft with default settings. `iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/KDE/craft/master/setup/install_craft.ps1'))`
 * Launch the KDE Craft Environment `C:\CraftRoot\craft\craftenv.ps1`
 * Add kovan craft blueprint repository: `craft --add-blueprint-repository https://github.com/ITUBIDB/craft-blueprints-owncloud.git`
 * Build the client: `craft --buildtype Release owncloud-client`
